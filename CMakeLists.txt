@@ -16,7 +16,7 @@ set(CMAKE_TOOLCHAIN_FILE
 )
 
 # Find libs from vcpkg manifest
-find_package(SQLite3 CONFIG REQUIRED)
+find_package(sqlite3 CONFIG REQUIRED)
 find_package(wxWidgets CONFIG REQUIRED COMPONENTS core base)
 find_package(spdlog CONFIG REQUIRED)
 find_package(matplotplusplus CONFIG REQUIRED)
@@ -32,8 +32,8 @@ add_executable(MoneyMinder
 # Depedency linking
 target_link_libraries(MoneyMinder
   PRIVATE
-    SQLite::SQLite3
+    sqlite3::sqlite3
     ${wxWidgets_LIBRARIES}
     spdlog::spdlog
-    matplotplusplus
+    matplotplusplus::matplotplusplus
 )
