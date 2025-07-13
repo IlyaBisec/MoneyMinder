@@ -5,31 +5,31 @@ project(MoneyMinder
   LANGUAGES CXX
 )
 
-# Включаем C++20
+# Turn on C++20
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Подключаем toolchain-файл vcpkg
+# Add toolchain-файл vcpkg
 set(CMAKE_TOOLCHAIN_FILE
     "${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake"
     CACHE STRING "Vcpkg toolchain file"
 )
 
-# Находит библиотеки из манифеста vcpkg
+# Find libs from vcpkg manifest
 find_package(SQLite3 CONFIG REQUIRED)
 find_package(wxWidgets CONFIG REQUIRED COMPONENTS core base)
 find_package(spdlog CONFIG REQUIRED)
 find_package(matplotplusplus CONFIG REQUIRED)
 
-# Устанавливаем include и библиотеки wxWidgets
+# Install include and wxWidgets libs
 include(${wxWidgets_USE_FILE})
 
-# Собираем исполняемый файл
+# Build binary file
 add_executable(MoneyMinder
   MoneyMinder/MoneyMinderMain.cpp
 )
 
-# Линкуем зависимости
+# Depedency linking
 target_link_libraries(MoneyMinder
   PRIVATE
     SQLite::SQLite3
