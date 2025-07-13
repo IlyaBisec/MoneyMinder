@@ -1,0 +1,11 @@
+json
+{
+  "name": "MoneyMinder",
+  "version": "0.0.1",
+  "dependencies": [
+    "sqlite3",
+    "wxwidgets",
+    "spdlog",
+    "matplotplusplus"
+  ]
+}
