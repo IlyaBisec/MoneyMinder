@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.0)
 
 project(MoneyMinder
   VERSION 0.0.1
@@ -16,13 +16,13 @@ set(CMAKE_TOOLCHAIN_FILE
 )
 
 # Find libs from vcpkg manifest
-find_package(sqlite3 CONFIG REQUIRED)
-find_package(wxWidgets CONFIG REQUIRED COMPONENTS core base)
+find_package(Sqlite3  REQUIRED)
+find_package(wxWidgets CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
 find_package(matplotplusplus CONFIG REQUIRED)
 
 # Install include and wxWidgets libs
-include(${wxWidgets_USE_FILE})
+#include(${wxWidgets_USE_FILE})
 
 # Build binary file
 add_executable(MoneyMinder
@@ -32,8 +32,8 @@ add_executable(MoneyMinder
 # Depedency linking
 target_link_libraries(MoneyMinder
   PRIVATE
-    sqlite3::sqlite3
-    ${wxWidgets_LIBRARIES}
-    spdlog::spdlog
-    matplotplusplus::matplotplusplus
+    sqlite3 
+    wxWidgets
+    spdlog
+    matplotplusplus
 )
